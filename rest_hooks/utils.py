@@ -99,10 +99,6 @@ def find_and_fire_hook(event_name, instance, user_override=None, payload_overrid
             filters['user'] = instance.user
         elif isinstance(instance, User):
             filters['user'] = instance
-        else:
-            raise Exception(
-                '{} has no `user` property. REST Hooks needs this.'.format(repr(instance))
-            )
     # NOTE: This is probably up for discussion, but I think, in this
     # case, instead of raising an error, we should fire the hook for
     # all users/accounts it is subscribed to. That would be a genuine
